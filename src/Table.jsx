@@ -1,13 +1,28 @@
 import React, { Component } from 'react'
 import ReactTable from 'react-table'
+import mergeJSON from 'merge-json'
 
 class Table extends Component {
 
 	render() {
 		console.log('props', this.props)
-		let data;
-		if(this.props.division === "ALL" && this.props.tournament === "ALL")
-			data = this.props.data[0].stats;
+		let data = [];
+		if(this.props.division === 'ALL' && this.props.tournament === 'ALL'){
+			data = mergeJSON.merge(this.props.data[0].stats, this.props.data[1].stats);
+			data = mergeJSON.merge(data, this.props.data[2].stats)
+		}
+		else if(this.props.division === "ALL"){
+			if(this.props.tournament === "Pro40")
+				data = mergeJSON.merge(this.props.data[0].stats, this.props.data[1].stats);
+			else
+				data = this.props.data[2].stats
+		}
+		else if(this.props.tournament === "ALL"){
+			if(this.props.division === "A")
+				data = mergeJSON.merge(this.props.data[0].stats, this.props.data[2].stats);
+			else
+				data = this.props.data[1].stats
+		}
 		else{
 			if(this.props.division === "A"){
 				if(this.props.tournament === "Pro40")
@@ -16,7 +31,8 @@ class Table extends Component {
 					data = this.props.data[2].stats;
 			}
 			else{
-				data = this.props.data[1].stats;
+				if(this.props.tournament === "Pro40")
+					data = this.props.data[1].stats;
 			}
 		}
 
