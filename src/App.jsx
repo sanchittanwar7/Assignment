@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
 import './App.css'
+import Table from './Table'
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, FormControl, FormGroup, ControlLabel } from 'react-bootstrap'
+var data = require('./batting.json');
+
 
 class App extends Component {
+
 
 	constructor(props){
 		super(props);
 		this.state = {
 			year: '2017',
 			team: '',
-			division: '',
-			tournament: ''
+			division: 'ALL',
+			tournament: 'ALL',
+			data: require('./batting.json')
 		}
 	}
 
 	search(){
-		console.log(this.state)
+		// console.log(this.state)
+		// console.log(data)
+		this.setState({ data: data})
 	}
 
 	render() {
@@ -99,6 +106,14 @@ class App extends Component {
 			      	placeholder="select"
 			      	
 			      >
+			      	<option 
+			        	value="All"
+			        	onClick = { event => {this.setState({tournament: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+			        >
+			        	All
+		        	</option>
 			        <option 
 			        	value="Pro40"
 			        	onClick = { event => {this.setState({tournament: event.target.value}, function(){
@@ -121,6 +136,15 @@ class App extends Component {
 			    <FormGroup controlId="formControlsSelect">
 			      <ControlLabel>Division</ControlLabel>
 			      <FormControl componentClass="select" placeholder="select">
+			        <option 
+			        	value="All"
+			        	onClick = { event => {this.setState({division: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+		        	>
+		        		All
+	        		</option>
+
 			        <option 
 			        	value="A"
 			        	onClick = { event => {this.setState({division: event.target.value}, function(){
@@ -158,6 +182,11 @@ class App extends Component {
 			      </FormControl>
 			    </FormGroup>
 			</div>
+			<Table 
+				data = { this.state.data }
+				division = {this.state.division}
+				tournament = {this.state.tournament}
+			/>
 			</div>
 
 		)
