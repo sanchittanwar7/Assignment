@@ -23,7 +23,7 @@ class Table extends Component {
 			if(division === "ALL" || tournament === "ALL" || (first.tournament === tournament && first.division === division)){
 				first.stats.map((player, key2) => {
 					if((tournament === "ALL" || first.tournament === tournament) && (division === "ALL" || first.division === division)){
-						if(team === "ALL" || player[1] === team){
+						if(player[1] !== "Team" && team === "ALL" || player[1] === team){
 							
 							temp.push(player)
 							
@@ -185,10 +185,10 @@ class Table extends Component {
 			    a = a === 'string' ? a.toLowerCase() : a
 			    b = b === 'string' ? b.toLowerCase() : b
 			    // Return either 1 or -1 to indicate a sort priority
-			    if (parseInt(a) > parseInt(b)) {
+			    if (parseFloat(a) > parseFloat(b)) {
 			      return 1
 			    }
-			    if (parseInt(a) < parseInt(b)) {
+			    if (parseFloat(a) < parseFloat(b)) {
 			      return -1
 			    }
 			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
@@ -206,10 +206,10 @@ class Table extends Component {
 			    a = a === 'string' ? a.toLowerCase() : a
 			    b = b === 'string' ? b.toLowerCase() : b
 			    // Return either 1 or -1 to indicate a sort priority
-			    if (parseInt(a) > parseInt(b)) {
+			    if (parseFloat(a) > parseFloat(b)) {
 			      return 1
 			    }
-			    if (parseInt(a) < parseInt(b)) {
+			    if (parseFloat(a) < parseFloat(b)) {
 			      return -1
 			    }
 			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
@@ -227,10 +227,10 @@ class Table extends Component {
 			    a = a === 'string' ? a.toLowerCase() : a
 			    b = b === 'string' ? b.toLowerCase() : b
 			    // Return either 1 or -1 to indicate a sort priority
-			    if (parseInt(a) > parseInt(b)) {
+			    if (parseFloat(a) > parseFloat(b)) {
 			      return 1
 			    }
-			    if (parseInt(a) < parseInt(b)) {
+			    if (parseFloat(a) < parseFloat(b)) {
 			      return -1
 			    }
 			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
@@ -248,10 +248,10 @@ class Table extends Component {
 			    a = a === 'string' ? a.toLowerCase() : a
 			    b = b === 'string' ? b.toLowerCase() : b
 			    // Return either 1 or -1 to indicate a sort priority
-			    if (parseInt(a) > parseInt(b)) {
+			    if (parseFloat(a) > parseFloat(b)) {
 			      return 1
 			    }
-			    if (parseInt(a) < parseInt(b)) {
+			    if (parseFloat(a) < parseFloat(b)) {
 			      return -1
 			    }
 			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
@@ -269,10 +269,10 @@ class Table extends Component {
 			    a = a === 'string' ? a.toLowerCase() : a
 			    b = b === 'string' ? b.toLowerCase() : b
 			    // Return either 1 or -1 to indicate a sort priority
-			    if (parseInt(a) > parseInt(b)) {
+			    if (parseFloat(a) > parseFloat(b)) {
 			      return 1
 			    }
-			    if (parseInt(a) < parseInt(b)) {
+			    if (parseFloat(a) < parseFloat(b)) {
 			      return -1
 			    }
 			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
@@ -290,10 +290,10 @@ class Table extends Component {
 			    a = a === 'string' ? a.toLowerCase() : a
 			    b = b === 'string' ? b.toLowerCase() : b
 			    // Return either 1 or -1 to indicate a sort priority
-			    if (parseInt(a) > parseInt(b)) {
+			    if (parseFloat(a) > parseFloat(b)) {
 			      return 1
 			    }
-			    if (parseInt(a) < parseInt(b)) {
+			    if (parseFloat(a) < parseFloat(b)) {
 			      return -1
 			    }
 			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
@@ -311,10 +311,10 @@ class Table extends Component {
 			    a = a === 'string' ? a.toLowerCase() : a
 			    b = b === 'string' ? b.toLowerCase() : b
 			    // Return either 1 or -1 to indicate a sort priority
-			    if (parseInt(a) > parseInt(b)) {
+			    if (parseFloat(a) > parseFloat(b)) {
 			      return 1
 			    }
-			    if (parseInt(a) < parseInt(b)) {
+			    if (parseFloat(a) < parseFloat(b)) {
 			      return -1
 			    }
 			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
@@ -325,6 +325,10 @@ class Table extends Component {
 		    id: 'average',
 		    accessor: d => d[9],
 		    sortMethod: (a, b) => {
+		    	if(a === "-")
+		    		a = Number.MIN_SAFE_INTEGER
+		    	if(b === "-")
+		    		b = Number.MIN_SAFE_INTEGER
 			    // force null and undefined to the bottom
 			    a = (a === null || a === undefined) ? -Infinity : a
 			    b = (b === null || b === undefined) ? -Infinity : b
@@ -332,10 +336,10 @@ class Table extends Component {
 			    a = a === 'string' ? a.toLowerCase() : a
 			    b = b === 'string' ? b.toLowerCase() : b
 			    // Return either 1 or -1 to indicate a sort priority
-			    if (parseInt(a) > parseInt(b)) {
+			    if (parseFloat(a) > parseFloat(b)) {
 			      return 1
 			    }
-			    if (parseInt(a) < parseInt(b)) {
+			    if (parseFloat(a) < parseFloat(b)) {
 			      return -1
 			    }
 			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
