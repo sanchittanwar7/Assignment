@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css'
 import Table from './Table'
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, FormControl, FormGroup, ControlLabel } from 'react-bootstrap'
-var data = require('./batting.json');
+// var data = require('./batting.json');
 
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
 		super(props);
 		this.state = {
 			year: '2017',
-			team: '',
+			team: 'ALL',
 			division: 'ALL',
 			tournament: 'ALL',
 			data: require('./batting.json')
@@ -22,7 +22,7 @@ class App extends Component {
 	search(){
 		// console.log(this.state)
 		// console.log(data)
-		this.setState({ data: data})
+		// this.setState({ data: data})
 	}
 
 	render() {
@@ -107,12 +107,12 @@ class App extends Component {
 			      	
 			      >
 			      	<option 
-			        	value="All"
+			        	value="ALL"
 			        	onClick = { event => {this.setState({tournament: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 			        >
-			        	All
+			        	ALL
 		        	</option>
 			        <option 
 			        	value="Pro40"
@@ -137,12 +137,12 @@ class App extends Component {
 			      <ControlLabel>Division</ControlLabel>
 			      <FormControl componentClass="select" placeholder="select">
 			        <option 
-			        	value="All"
+			        	value="ALL"
 			        	onClick = { event => {this.setState({division: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 		        	>
-		        		All
+		        		ALL
 	        		</option>
 
 			        <option 
@@ -167,17 +167,59 @@ class App extends Component {
 			    <FormGroup controlId="formControlsSelect">
 			      <ControlLabel>Team</ControlLabel>
 			      <FormControl componentClass="select" placeholder="select">
-			        <option value="All">All</option>
-			        <option value="Boston Eagles">Boston Eagles</option>
-			        <option value="Boston Gymkhana S.C A">Boston Gymkhana S.C A</option>
-			        <option value="Boston Gymkhana S.C B">Boston Gymkhana S.C B</option>
-			        <option value="Challengers Cricket Club">Challengers Cricket Club</option>
-			        <option value="Commonwealth Cricket Club A">Commonwealth Cricket Club A</option>
-			        <option value="Conway Cricket Club">Conway Cricket Club</option>
-			        <option value="Guyana Cricket Club">Guyana Cricket Club</option>
-			        <option value="Lagaan Lions">Lagaan Lions</option>
-			        <option value="NECC Hawks">NECC Hawks</option>
-			        <option value="NECC Stars">NECC Stars</option>
+			        <option value="ALL"
+			        	onClick = { event => {this.setState({team: event.target.value})}}
+			        >ALL</option>
+			        <option value="Boston Eagles"
+onClick = { event => {this.setState({team: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+			        >Boston Eagles</option>
+			        <option value="Boston Gymkhana S.C A"
+onClick = { event => {this.setState({team: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+			        >Boston Gymkhana S.C A</option>
+			        <option value="Boston Gymkhana S.C B"
+onClick = { event => {this.setState({team: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+			        >Boston Gymkhana S.C B</option>
+			        <option value="Challengers Cricket Club"
+onClick = { event => {this.setState({team: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+			        >Challengers Cricket Club</option>
+			        <option value="Commonwealth Cricket Club A"
+onClick = { event => {this.setState({team: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+			        >Commonwealth Cricket Club A</option>
+			        <option value="Conway Cricket Club"
+onClick = { event => {this.setState({team: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+			        >Conway Cricket Club</option>
+			        <option value="Guyana Cricket Club"
+onClick = { event => {this.setState({team: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+			        >Guyana Cricket Club</option>
+			        <option value="Lagaan Lions"
+onClick = { event => {this.setState({team: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+			        >Lagaan Lions</option>
+			        <option value="NECC Hawks"
+onClick = { event => {this.setState({team: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+			        >NECC Hawks</option>
+			        <option value="NECC Stars"
+onClick = { event => {this.setState({team: event.target.value}, function(){
+			        		this.search()
+			        	})}}
+			        >NECC Stars</option>
 
 			      </FormControl>
 			    </FormGroup>
@@ -186,6 +228,7 @@ class App extends Component {
 				data = { this.state.data }
 				division = {this.state.division}
 				tournament = {this.state.tournament}
+				team = {this.state.team}
 			/>
 			</div>
 
