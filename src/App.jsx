@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './App.css'
 import Table from './Table'
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, FormControl, FormGroup, ControlLabel } from 'react-bootstrap'
-// var data = require('./batting.json');
-
-
 class App extends Component {
 
 
@@ -20,9 +17,7 @@ class App extends Component {
 	}
 
 	search(){
-		// console.log(this.state)
-		// console.log(data)
-		// this.setState({ data: data})
+
 	}
 
 	render() {
@@ -171,52 +166,52 @@ class App extends Component {
 			        	onClick = { event => {this.setState({team: event.target.value})}}
 			        >ALL</option>
 			        <option value="Boston Eagles"
-onClick = { event => {this.setState({team: event.target.value}, function(){
+					onClick = { event => {this.setState({team: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 			        >Boston Eagles</option>
 			        <option value="Boston Gymkhana S.C A"
-onClick = { event => {this.setState({team: event.target.value}, function(){
+					onClick = { event => {this.setState({team: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 			        >Boston Gymkhana S.C A</option>
 			        <option value="Boston Gymkhana S.C B"
-onClick = { event => {this.setState({team: event.target.value}, function(){
+					onClick = { event => {this.setState({team: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 			        >Boston Gymkhana S.C B</option>
 			        <option value="Challengers Cricket Club"
-onClick = { event => {this.setState({team: event.target.value}, function(){
+					onClick = { event => {this.setState({team: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 			        >Challengers Cricket Club</option>
 			        <option value="Commonwealth Cricket Club A"
-onClick = { event => {this.setState({team: event.target.value}, function(){
+					onClick = { event => {this.setState({team: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 			        >Commonwealth Cricket Club A</option>
 			        <option value="Conway Cricket Club"
-onClick = { event => {this.setState({team: event.target.value}, function(){
+					onClick = { event => {this.setState({team: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 			        >Conway Cricket Club</option>
 			        <option value="Guyana Cricket Club"
-onClick = { event => {this.setState({team: event.target.value}, function(){
+					onClick = { event => {this.setState({team: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 			        >Guyana Cricket Club</option>
 			        <option value="Lagaan Lions"
-onClick = { event => {this.setState({team: event.target.value}, function(){
+					onClick = { event => {this.setState({team: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 			        >Lagaan Lions</option>
 			        <option value="NECC Hawks"
-onClick = { event => {this.setState({team: event.target.value}, function(){
+					onClick = { event => {this.setState({team: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 			        >NECC Hawks</option>
 			        <option value="NECC Stars"
-onClick = { event => {this.setState({team: event.target.value}, function(){
+					onClick = { event => {this.setState({team: event.target.value}, function(){
 			        		this.search()
 			        	})}}
 			        >NECC Stars</option>
