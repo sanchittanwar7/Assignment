@@ -18,7 +18,7 @@ class Table extends Component {
 
 	getData(team, division, tournament){
 		var temp = []
-		console.log('temp', temp)
+		// console.log('temp', temp)
 		this.state.batting_data.map((first, key1) => {
 			if(division === "ALL" || tournament === "ALL" || (first.tournament === tournament && first.division === division)){
 				first.stats.map((player, key2) => {
@@ -32,7 +32,7 @@ class Table extends Component {
 				})
 			}
 		})
-				console.log('temp', temp)
+				// console.log('temp', temp)
 
 		this.setState({this_data: temp})
 	}
@@ -68,7 +68,7 @@ class Table extends Component {
 	}
 
 	render() {
-		console.log('props', this.props)
+		// console.log('props', this.props)
 		
 
 
@@ -120,8 +120,8 @@ class Table extends Component {
 		// 	}
 		// })
 
-		console.log('this_data after', this.state.this_data)
-		console.log('batting_data after', this.state.batting_data)
+		// console.log('this_data after', this.state.this_data)
+		// console.log('batting_data after', this.state.batting_data)
 
 
 		// let data = [];
@@ -176,35 +176,171 @@ class Table extends Component {
 		  },{
 		    Header: 'Matches',
 		    id: 'matches',
-		    accessor: d => d[2] // String-based value accessors!
+		    accessor: d => d[2],
+		    sortMethod: (a, b) => {
+			    // force null and undefined to the bottom
+			    a = (a === null || a === undefined) ? -Infinity : a
+			    b = (b === null || b === undefined) ? -Infinity : b
+			    // force any string values to lowercase
+			    a = a === 'string' ? a.toLowerCase() : a
+			    b = b === 'string' ? b.toLowerCase() : b
+			    // Return either 1 or -1 to indicate a sort priority
+			    if (parseInt(a) > parseInt(b)) {
+			      return 1
+			    }
+			    if (parseInt(a) < parseInt(b)) {
+			      return -1
+			    }
+			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
+			    return 0
+			  } // String-based value accessors!
 		  },{
 		    Header: 'Innings',
 		    id: 'innings',
-		    accessor: d => d[3] // String-based value accessors!
+		    accessor: d => d[3],
+		    sortMethod: (a, b) => {
+			    // force null and undefined to the bottom
+			    a = (a === null || a === undefined) ? -Infinity : a
+			    b = (b === null || b === undefined) ? -Infinity : b
+			    // force any string values to lowercase
+			    a = a === 'string' ? a.toLowerCase() : a
+			    b = b === 'string' ? b.toLowerCase() : b
+			    // Return either 1 or -1 to indicate a sort priority
+			    if (parseInt(a) > parseInt(b)) {
+			      return 1
+			    }
+			    if (parseInt(a) < parseInt(b)) {
+			      return -1
+			    }
+			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
+			    return 0
+			  } // String-based value accessors!
 		  },{
 		    Header: 'Not Outs',
 		    id: 'not_outs',
-		    accessor: d => d[4] // String-based value accessors!
+		    accessor: d => d[4],
+		    sortMethod: (a, b) => {
+			    // force null and undefined to the bottom
+			    a = (a === null || a === undefined) ? -Infinity : a
+			    b = (b === null || b === undefined) ? -Infinity : b
+			    // force any string values to lowercase
+			    a = a === 'string' ? a.toLowerCase() : a
+			    b = b === 'string' ? b.toLowerCase() : b
+			    // Return either 1 or -1 to indicate a sort priority
+			    if (parseInt(a) > parseInt(b)) {
+			      return 1
+			    }
+			    if (parseInt(a) < parseInt(b)) {
+			      return -1
+			    }
+			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
+			    return 0
+			  } // String-based value accessors!
 		  },{
 		    Header: 'Runs',
 		    id: 'runs',
-		    accessor: d => d[5] // String-based value accessors!
+		    accessor: d => d[5],
+		    sortMethod: (a, b) => {
+			    // force null and undefined to the bottom
+			    a = (a === null || a === undefined) ? -Infinity : a
+			    b = (b === null || b === undefined) ? -Infinity : b
+			    // force any string values to lowercase
+			    a = a === 'string' ? a.toLowerCase() : a
+			    b = b === 'string' ? b.toLowerCase() : b
+			    // Return either 1 or -1 to indicate a sort priority
+			    if (parseInt(a) > parseInt(b)) {
+			      return 1
+			    }
+			    if (parseInt(a) < parseInt(b)) {
+			      return -1
+			    }
+			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
+			    return 0
+			  } // String-based value accessors!
 		  },{
 		    Header: 'Highest',
 		    id: 'highest',
-		    accessor: d => d[6] // String-based value accessors!
+		    accessor: d => d[6],
+		    sortMethod: (a, b) => {
+			    // force null and undefined to the bottom
+			    a = (a === null || a === undefined) ? -Infinity : a
+			    b = (b === null || b === undefined) ? -Infinity : b
+			    // force any string values to lowercase
+			    a = a === 'string' ? a.toLowerCase() : a
+			    b = b === 'string' ? b.toLowerCase() : b
+			    // Return either 1 or -1 to indicate a sort priority
+			    if (parseInt(a) > parseInt(b)) {
+			      return 1
+			    }
+			    if (parseInt(a) < parseInt(b)) {
+			      return -1
+			    }
+			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
+			    return 0
+			  } // String-based value accessors!
 		  },{
 		    Header: '50s',
 		    id: '50s',
-		    accessor: d => d[7] // String-based value accessors!
+		    accessor: d => d[7],
+		    sortMethod: (a, b) => {
+			    // force null and undefined to the bottom
+			    a = (a === null || a === undefined) ? -Infinity : a
+			    b = (b === null || b === undefined) ? -Infinity : b
+			    // force any string values to lowercase
+			    a = a === 'string' ? a.toLowerCase() : a
+			    b = b === 'string' ? b.toLowerCase() : b
+			    // Return either 1 or -1 to indicate a sort priority
+			    if (parseInt(a) > parseInt(b)) {
+			      return 1
+			    }
+			    if (parseInt(a) < parseInt(b)) {
+			      return -1
+			    }
+			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
+			    return 0
+			  } // String-based value accessors!
 		  },{
 		    Header: '100s',
 		    id: '100s',
-		    accessor: d => d[8] // String-based value accessors!
+		    accessor: d => d[8],
+		    sortMethod: (a, b) => {
+			    // force null and undefined to the bottom
+			    a = (a === null || a === undefined) ? -Infinity : a
+			    b = (b === null || b === undefined) ? -Infinity : b
+			    // force any string values to lowercase
+			    a = a === 'string' ? a.toLowerCase() : a
+			    b = b === 'string' ? b.toLowerCase() : b
+			    // Return either 1 or -1 to indicate a sort priority
+			    if (parseInt(a) > parseInt(b)) {
+			      return 1
+			    }
+			    if (parseInt(a) < parseInt(b)) {
+			      return -1
+			    }
+			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
+			    return 0
+			  } // String-based value accessors!
 		  },{
 		    Header: 'Average',
 		    id: 'average',
-		    accessor: d => d[9] // String-based value accessors!
+		    accessor: d => d[9],
+		    sortMethod: (a, b) => {
+			    // force null and undefined to the bottom
+			    a = (a === null || a === undefined) ? -Infinity : a
+			    b = (b === null || b === undefined) ? -Infinity : b
+			    // force any string values to lowercase
+			    a = a === 'string' ? a.toLowerCase() : a
+			    b = b === 'string' ? b.toLowerCase() : b
+			    // Return either 1 or -1 to indicate a sort priority
+			    if (parseInt(a) > parseInt(b)) {
+			      return 1
+			    }
+			    if (parseInt(a) < parseInt(b)) {
+			      return -1
+			    }
+			    // returning 0, undefined or any falsey value will use subsequent sorts or the index as a tiebreaker
+			    return 0
+			  }// String-based value accessors!
 		  }]
 
 		 //  if(this.props.team !== "ALL"){
